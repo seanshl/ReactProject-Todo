@@ -13,7 +13,6 @@ export var toggleShowCompleted = function() {
 	};
 };
 
-
 export var addTodo = function(text) {
 	return {
 		type: 'ADD_TODO',
@@ -26,5 +25,12 @@ export var toggleTodo = function(id) {
 	return {
 		type: 'TOGGLE_TODO',
 		id
+	};
+};
+
+export var addTodos = function(todos) {
+	return {
+		type: 'ADD_TODOS',
+		todos: todos
 	};
 };
