@@ -29,6 +29,7 @@ module.exports = {
 			'./playground/firebase'
 		],
 		alias: {
+			app: 'app',
 			applicationStyles: 'app/styles/app.scss',
 			TodoAPI: 'api/TodoAPI.jsx',
 			actions: 'app/actions/actions.jsx',
