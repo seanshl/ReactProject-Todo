@@ -8,6 +8,8 @@ var actions = require('actions');
 var store = require('configureStore').configure();
 var TodoAPI = require('TodoAPI');
 
+import './../playground/firebase/index';
+
 // Load foundation
 require('style!css!foundation-sites/dist/foundation.min.css');
 $(document).foundation();
