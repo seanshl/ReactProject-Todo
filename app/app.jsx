@@ -16,19 +16,22 @@ $(document).foundation();
 require('style!css!sass!applicationStyles')
 
 
-store.subscribe(function() {
-	var state = store.getState();
+// store.subscribe(function() {
+// 	var state = store.getState();
 
-	console.log('New state', state);
+// 	console.log('New state', state);
 
-	TodoAPI.setTodos(state.todos);
-});
+// 	TodoAPI.setTodos(state.todos);
+// });
 
 /*store.dispatch(actions.addTodo('Clean the yard'));
 store.dispatch(actions.setSearchText('yard'));
 store.dispatch(actions.toggleShowCompleted());*/
-var initialTodos = TodoAPI.getTodos();
-store.dispatch(actions.addTodos(initialTodos));
+// var initialTodos = TodoAPI.getTodos();
+// store.dispatch(actions.addTodos(initialTodos));
+
+store.dispatch(actions.startAddTodos());
+
 
 ReactDOM.render(
 	<Provider  store={store}>

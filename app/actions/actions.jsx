@@ -26,7 +26,7 @@ export var addTodo = function(todo) {
 export var startAddTodo = function(text) {
 	return function(dispatch, getState) {
 		var todo = {
-			text,
+			text: text,
 			completed: false,
 			createdAt: moment().unix(),
 			completedAt: null
@@ -70,5 +70,25 @@ export var addTodos = function(todos) {
 	return {
 		type: 'ADD_TODOS',
 		todos: todos
+	};
+};
+
+export var startAddTodos = function() {
+	return function(dispatch, getState) {
+		var todosRef = firebaseRef.child('todos');
+
+		return todosRef.once('value').then((snapshot) => {
+			var todos = snapshot.val() || {};
+			var parsedTodos = [];
+
+			Object.keys(todos).forEach((todoId) => {
+				parsedTodos.push({
+					id: todoId,
+					...todos[todoId]
+				});
+			});
+
+			dispatch(addTodos(parsedTodos));
+		});
 	};
 };
